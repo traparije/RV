@@ -27,6 +27,11 @@ def read_pgm(filename, byteorder='>'):
 if __name__ == "__main__":
     from matplotlib import pyplot
     image = read_pgm("taxi/taxi01.pgm", byteorder='<')
-
+    pyplot.figure(1)
     pyplot.imshow(image, cmap='gray')
     pyplot.show()
+    image = read_pgm("taxi/taxi02.pgm", byteorder='<')
+    pyplot.figure(2)
+    pyplot.imshow(image, cmap='gray')
+    pyplot.show()
+    print("done")

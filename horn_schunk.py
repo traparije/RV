@@ -83,3 +83,17 @@ while n<=T:
   n=n+1
 #print(Ix,Iy,It)
 #print(oddU,oddV)
+
+import matplotlib.pyplot as plt
+X = np.arange(0, NCols, 1)
+Y = np.arange(NRows,0, -1)#obrnjeno zaradi prikaza grafa
+U, V = oddU, oddV
+
+fig, ax = plt.subplots()
+q = ax.quiver(X, Y, U, V)
+ax.quiverkey(q, X=0.3, Y=1.1, U=10,
+             label='Quiver key, length = 10', labelpos='E')
+
+plt.show()
+from matplotlib import pyplot
+print("done")
