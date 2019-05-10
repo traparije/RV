@@ -1,6 +1,10 @@
 import re
 import numpy
-
+import matplotlib.pyplot as plt
+import numpy as np
+import PIL.Image as im
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm # uvozi barvne lestvice
 def read_pgm(filename, byteorder='>'):
     """Return image data from a raw PGM file as numpy array.
 
@@ -23,6 +27,33 @@ def read_pgm(filename, byteorder='>'):
                             offset=len(header)
                             ).reshape((int(height), int(width)))
 
+
+def showImage(iImage, iTitle=''):
+    '''
+    Prikaže sliko iImage in jo naslovi z iTitle
+    
+    Parameters
+    ----------
+    iImage : numpy.ndarray
+        Vhodna slika 
+    iTitle : str 
+        Naslov za sliko
+    
+    Returns
+    ---------
+    Nothing
+    
+    
+    '''
+    plt.figure() # odpri novo prikazno okno
+    
+    if iImage.ndim == 3 and iImage.shape[0] == 3:
+        iImage = np.transpose(iImage,[1,2,0])
+
+    plt.imshow(iImage, cmap = 'gray') # prikazi sliko v novem oknu
+    plt.suptitle(iTitle) # nastavi naslov slike
+    plt.xlabel('x')
+    plt.ylabel('y')
 
 if __name__ == "__main__":
     from matplotlib import pyplot
